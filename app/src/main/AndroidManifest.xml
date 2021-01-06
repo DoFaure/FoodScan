@@ -3,10 +3,11 @@
     package="com.fr.foodscan">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-    <uses-feature android:name="android.hardware.camera"></uses-feature>
-    <uses-feature android:name="android.hardware.camera.autofocus"></uses-feature>
-    
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,10 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodScan">
-        <activity
-            android:name=".ProductDetailsActivity"
-            android:label="@string/title_activity_product_details"
-            android:theme="@style/Theme.FoodScan.NoActionBar"></activity>
+        <activity android:name=".ProductDetailActivity"></activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -30,12 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CaptureActivity"
+        <activity
+            android:name=".CaptureActivity"
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
-            android:windowSoftInputMode="stateAlwaysHidden">
-
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
     </application>
 
 </manifest>

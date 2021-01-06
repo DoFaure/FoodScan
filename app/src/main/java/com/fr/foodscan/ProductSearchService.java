@@ -1,30 +1,18 @@
 package com.fr.foodscan;
 
-import android.util.Log;
+import com.fr.foodscan.model.ProductSearchResult;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import java.lang.reflect.Modifier;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.OkHttpClient;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
+/*
 public class ProductSearchService {
 
     private static final long REFRESH_DELAY = 650;
     public static ProductSearchService INSTANCE = new ProductSearchService();
+    public static final String ENDPOINT = "https://fr.openfoodfacts.org/api/v0/";
+
     private final ProductSearchRESTService mProductSearchRESTService;
     private ScheduledExecutorService mScheduler = Executors.newScheduledThreadPool(1);
     private ScheduledFuture mLastScheduleTask;
@@ -64,7 +52,7 @@ public class ProductSearchService {
                     public void onResponse(Call<ProductSearchResult> call, Response<ProductSearchResult> response) {
                         // Post an event so that listening activities can update their UI
                         if (response.body() != null) {
-                            System.out.println(response.body().getProduct().getGeneric_name());
+                           //  EventBusManager.BUS.post(response.body().getProduct());
                         } else {
                             // Null result
                             // We may want to display a warning to user (e.g. Toast)
@@ -84,11 +72,13 @@ public class ProductSearchService {
             }
         }, REFRESH_DELAY, TimeUnit.MILLISECONDS);
     }
+*/
+// Service describing the REST APIs
+public interface ProductSearchService {
 
-    // Service describing the REST APIs
-    public interface ProductSearchRESTService {
-        @GET("product/{barCode}")
-        Call<ProductSearchResult> searchProduct(@Path("barCode") String search);
-    }
+    public static final String ENDPOINT = "https://fr.openfoodfacts.org/api/v0/";
 
+    @GET("product/{barCode}")
+    Call<ProductSearchResult> searchProduct(@Path("barCode") String search);
 }
+
