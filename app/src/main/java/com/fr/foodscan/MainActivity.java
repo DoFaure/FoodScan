@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mScanButton = findViewById(R.id.buttonScan);
         mScanButton.setOnClickListener(this);
 
+        //ProductSearchService.INSTANCE.searchProductFromBarcode("8002270014901");
+
     }
 
     @Override
@@ -49,12 +51,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
         if(result != null){
             if(result.getContents() != null){
+                /*
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(result.getContents());
                 builder.setTitle("Barcode scanned");
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
+                 */
+                ProductSearchService.INSTANCE.searchProductFromBarcode(result.getContents());
             }else{
                 Toast.makeText(this, "no result", Toast.LENGTH_LONG).show();
             }
