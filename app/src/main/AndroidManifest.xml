@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fr.foodscan">
 
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+    <uses-feature android:name="android.hardware.camera"></uses-feature>
+    <uses-feature android:name="android.hardware.camera.autofocus"></uses-feature>
+    
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +19,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".CaptureActivity"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:windowSoftInputMode="stateAlwaysHidden">
+
         </activity>
     </application>
 
