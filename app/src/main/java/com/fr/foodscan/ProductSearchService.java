@@ -64,7 +64,7 @@ public class ProductSearchService {
                     public void onResponse(Call<ProductSearchResult> call, Response<ProductSearchResult> response) {
                         // Post an event so that listening activities can update their UI
                         if (response.body() != null) {
-                            System.out.println(response.body().getProduct().getProduct_name_fr());
+                            System.out.println(response.body().getProduct().getGeneric_name());
                         } else {
                             // Null result
                             // We may want to display a warning to user (e.g. Toast)
