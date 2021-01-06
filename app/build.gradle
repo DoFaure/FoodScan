@@ -35,4 +35,15 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // Add ButterKnife to project
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    //Add zxing
+    implementation 'com.journeyapps:zxing-android-embedded:3.4.0'
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.18'
+
+
 }
