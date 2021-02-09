@@ -7,6 +7,9 @@ import java.io.Serializable;
 public class Product implements Serializable {
 
     @Expose
+    private String product_name;
+
+    @Expose
     private String generic_name;
 
     @Expose
@@ -17,6 +20,9 @@ public class Product implements Serializable {
 
     @Expose
     private String nutriscore_grade;
+
+    @Expose
+    private String ingredients_text;
 
     @Expose
     private String link;
@@ -52,7 +58,6 @@ public class Product implements Serializable {
     public void setNutriscore_grade(String nutriscore_grade) {
         this.nutriscore_grade = nutriscore_grade;
     }
-
     public String getLink() {
         return link;
     }
@@ -61,10 +66,23 @@ public class Product implements Serializable {
         this.link = link;
     }
 
+    public String getProduct_name(){return product_name;}
+
+    public void setProduct_name(String product_name){ this.product_name = product_name;}
+
+    public String getIngredients_text() {
+        return ingredients_text;
+    }
+
+    public void setIngredients_text(String ingredients_text) {
+        this.ingredients_text = ingredients_text;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
-                "generic_name='" + generic_name + '\'' +
+                "product_name'" + product_name + '\'' +
+                ", generic_name='" + generic_name + '\'' +
                 ", brands='" + brands + '\'' +
                 ", image_url='" + image_url + '\'' +
                 ", nutriscore_grade='" + nutriscore_grade + '\'' +
