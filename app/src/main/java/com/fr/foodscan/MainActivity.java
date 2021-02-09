@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mScanButton.setOnClickListener(this);
     }
 
+    //Methode appelé lorsque que l'on appuis sur le boutton SCAN PRODUCT
     @Override
     public void onClick(View view) {
         scanBarCode();
     }
 
+    //Methode permettant de lancer l'activite de scan (CaptureActivity)
     private void scanBarCode() {
 
         IntentIntegrator integrator = new IntentIntegrator(this);
@@ -57,19 +59,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    //Si le scan reussi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() != null) {
 
+
+                //Appel Asynchrone à l'API
                 AsyncTask<String, Void, Product> asyncTaskProduct = new ProductAsyncCall().execute(result.getContents());
                 try {
                     Product product = asyncTaskProduct.get();
                     System.out.println(product.toString());
+
+                    //Affiche les details des produits dans une nouvelle activité
                     Intent intentDetailActivity = new Intent(this, ProductDetailActivity.class);
                     intentDetailActivity.putExtra("Product", product);
                     startActivity(intentDetailActivity);
+
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {

@@ -25,6 +25,7 @@ public class ProductAsyncCall extends AsyncTask<String, Void, Product> {
 
         Response<ProductSearchResult> productResult = null;
         try {
+            //Appel à l'API open food fact
             productResult = productService.searchProduct(strings[0]).execute();
             System.out.println(productResult.body().getProduct());
             return productResult.body().getProduct();
